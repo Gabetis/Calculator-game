@@ -17,8 +17,35 @@ public class GameManager : MonoBehaviour
         yield return null;
 
         RandomNumber();
+        Question.Result.onEndEdit.AddListener(CheckAnswer);
     }
 
+    private void CheckAnswer(string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            Debug.LogWarning("NULL");
+            return;
+        }
+
+        int userResult;
+        bool success = int.TryParse(text, out userResult);
+
+        if (!success)
+        {
+            Debug.LogWarning("INCORRECT FORMAT");
+            return;
+        }
+
+        if (number1 + number2 == userResult)
+        {
+            Debug.Log("Correct");
+        }
+        else
+        {
+            Debug.Log("Wrong");
+        }
+    }
     private void RandomNumber()
     {
         number1 = Random.Range(0, 10);
