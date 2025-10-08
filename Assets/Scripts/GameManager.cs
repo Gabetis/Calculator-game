@@ -4,6 +4,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private MathQuestionUIManager Question;
+    [SerializeField] private UIManager UImanager;
     private int number1;
     private int number2;
     private int result;
@@ -14,6 +15,10 @@ public class GameManager : MonoBehaviour
             Question = FindAnyObjectByType<MathQuestionUIManager>();
         }
 
+        if (UImanager == null)
+        {
+            UImanager = FindAnyObjectByType<UIManager>();
+        }
         yield return null;
 
         RandomNumber();
@@ -40,10 +45,12 @@ public class GameManager : MonoBehaviour
         if (number1 + number2 == userResult)
         {
             Debug.Log("Correct");
+            UImanager.resultUI.ShowCorrect();
         }
         else
         {
             Debug.Log("Wrong");
+            UImanager.resultUI.ShowWrong();
         }
     }
     private void RandomNumber()
