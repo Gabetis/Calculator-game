@@ -29,4 +29,10 @@ public class ResultUI : MonoBehaviour
         Correct.SetActive(false);
         Wrong.SetActive(true);
     }
+
+    public void Reset()
+    {
+        Correct.SetActive(false);
+        Wrong.SetActive(false);
+    }
 }

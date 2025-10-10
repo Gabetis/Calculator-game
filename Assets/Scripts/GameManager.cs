@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager UImanager;
     private int number1;
     private int number2;
-    private int result;
+    private int userResult = 0;
     private IEnumerator Start()
     {
         if (Question == null)
@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         Question.Result.onEndEdit.AddListener(CheckAnswer);
     }
 
+    private void Update()
+    {
+        
+    }
+
     private void CheckAnswer(string text)
     {
         if (string.IsNullOrWhiteSpace(text))
@@ -33,7 +38,6 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        int userResult;
         bool success = int.TryParse(text, out userResult);
 
         if (!success)
@@ -46,6 +50,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Correct");
             UImanager.resultUI.ShowCorrect();
+            Invoke("RandomNumber", 2f);
+            Invoke("ResetResultUI", 2f);
         }
         else
         {
@@ -60,6 +66,12 @@ public class GameManager : MonoBehaviour
         Question.Number1.text = number1.ToString();
         Question.Number2.text = number2.ToString();
         Question.Operator.text = "+";
+    }
+
+    private void ResetResultUI()
+    {
+        UImanager.resultUI.Reset();
+        Question.Result.text = string.Empty;
     }
 }
 
