@@ -3,18 +3,12 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private MathQuestionUIManager Question;
     [SerializeField] private UIManager UImanager;
     private int number1;
     private int number2;
     private int userResult = 0;
     private IEnumerator Start()
     {
-        if (Question == null)
-        {
-            Question = FindAnyObjectByType<MathQuestionUIManager>();
-        }
-
         if (UImanager == null)
         {
             UImanager = FindAnyObjectByType<UIManager>();
@@ -22,12 +16,8 @@ public class GameManager : MonoBehaviour
         yield return null;
 
         RandomNumber();
-        Question.Result.onEndEdit.AddListener(CheckAnswer);
-    }
-
-    private void Update()
-    {
-        
+        UImanager.mathQuestionUIManager.Result.onEndEdit.AddListener(CheckAnswer);
+        UImanager.timeText.StartCountDown();
     }
 
     private void CheckAnswer(string text)
@@ -50,6 +40,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Correct");
             UImanager.resultUI.ShowCorrect();
+            UImanager.timeText.TimeStop();
             Invoke("RandomNumber", 2f);
             Invoke("ResetResultUI", 2f);
         }
@@ -63,15 +54,17 @@ public class GameManager : MonoBehaviour
     {
         number1 = Random.Range(0, 10);
         number2 = Random.Range(0, 10);
-        Question.Number1.text = number1.ToString();
-        Question.Number2.text = number2.ToString();
-        Question.Operator.text = "+";
+        UImanager.mathQuestionUIManager.Number1.text = number1.ToString();
+        UImanager.mathQuestionUIManager.Number2.text = number2.ToString();
+        UImanager.mathQuestionUIManager.Operator.text = "+";
     }
 
     private void ResetResultUI()
     {
         UImanager.resultUI.Reset();
-        Question.Result.text = string.Empty;
+        UImanager.mathQuestionUIManager.Result.text = string.Empty;
+        UImanager.timeText.TimeReset();
+        UImanager.timeText.StartCountDown();    
     }
 }
 
