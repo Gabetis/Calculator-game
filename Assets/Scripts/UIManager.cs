@@ -3,8 +3,8 @@ using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance { get; private set; }
     [SerializeField] public MathQuestionUIManager mathQuestionUIManager;
-    [SerializeField] public ResultUI resultUI;
     [SerializeField] public TimeUI timeText;
     [SerializeField] public GameObject GameOverPanel;
 
@@ -13,11 +13,6 @@ public class UIManager : MonoBehaviour
         if (mathQuestionUIManager == null)
         {
             mathQuestionUIManager = FindAnyObjectByType<MathQuestionUIManager>();
-        }
-
-        if (resultUI == null)
-        {
-            resultUI = FindAnyObjectByType<ResultUI>();
         }
 
         if (timeText == null)

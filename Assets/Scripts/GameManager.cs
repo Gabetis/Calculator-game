@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private UIManager UImanager;
@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
         yield return null;
 
         RandomNumber();
-        UImanager.mathQuestionUIManager.Result.onEndEdit.AddListener(CheckAnswer);
+        //Call CheckAnswer when the input field editing ends (Enter or click outside)
+        UImanager.mathQuestionUIManager.Result.onEndEdit.AddListener(CheckAnswer);// AddListener will call CheckAnswer function when onEndEdit is triggered (Enter or click outside)  
         UImanager.timeText.StartCountDown();
     }
 
@@ -39,33 +40,37 @@ public class GameManager : MonoBehaviour
         if (number1 + number2 == userResult)
         {
             Debug.Log("Correct");
-            UImanager.resultUI.ShowCorrect();
             UImanager.timeText.TimeStop();
-            Invoke("RandomNumber", 2f);
-            Invoke("ResetResultUI", 2f);
+            AudioManager.Instance.PlayCorrectSound();
+            RandomNumber();
+            ResetQuestion();
         }
         else
         {
             Debug.Log("Wrong");
-            UImanager.resultUI.ShowWrong();
+            AudioManager.Instance.PlayWrongSound();
         }
     }
     private void RandomNumber()
     {
         number1 = Random.Range(0, 10);
         number2 = Random.Range(0, 10);
+
         UImanager.mathQuestionUIManager.Number1.text = number1.ToString();
         UImanager.mathQuestionUIManager.Number2.text = number2.ToString();
+
         UImanager.mathQuestionUIManager.Operator.text = "+";
     }
 
-    private void ResetResultUI()
+    private void ResetQuestion()
     {
-        UImanager.resultUI.Reset();
+        var input = UImanager.mathQuestionUIManager.Result;
+
         UImanager.mathQuestionUIManager.Result.text = string.Empty;
+        EventSystem.current.SetSelectedGameObject(input.gameObject);
+        input.ActivateInputField();
+
         UImanager.timeText.TimeReset();
-        UImanager.timeText.StartCountDown();    
+        UImanager.timeText.StartCountDown();
     }
 }
-
-
