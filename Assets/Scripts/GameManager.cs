@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckAnswer(string text)
     {
+        int result = number1 + number2;
         if (string.IsNullOrWhiteSpace(text))
         {
             Debug.LogWarning("NULL");
@@ -37,10 +38,11 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (number1 + number2 == userResult)
+        if (result == userResult)
         {
             Debug.Log("Correct");
             UImanager.timeText.TimeStop();
+            UImanager.streakText.IncreaseScore();
             AudioManager.Instance.PlayCorrectSound();
             RandomNumber();
             ResetQuestion();
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Wrong");
             AudioManager.Instance.PlayWrongSound();
+            UImanager.streakText.ResetScore();
         }
     }
     private void RandomNumber()

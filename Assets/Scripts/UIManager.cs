@@ -7,17 +7,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] public MathQuestionUIManager mathQuestionUIManager;
     [SerializeField] public TimeUI timeText;
     [SerializeField] public GameObject GameOverPanel;
-
+    [SerializeField] public StreakText streakText;
     private IEnumerator Start()
     {
         if (mathQuestionUIManager == null)
         {
-            mathQuestionUIManager = FindAnyObjectByType<MathQuestionUIManager>();
+            mathQuestionUIManager = GetComponentInChildren<MathQuestionUIManager>();
         }
 
         if (timeText == null)
         {
-            timeText = FindAnyObjectByType<TimeUI>();
+            timeText = GetComponentInChildren<TimeUI>();
+        }
+
+        if(streakText == null)
+        {
+            streakText = GetComponentInChildren<StreakText>();
         }
         yield return null;
     }
