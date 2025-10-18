@@ -35,8 +35,7 @@ public class TimeUI : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        uiManager.GameOverPanel.SetActive(true);
-        Debug.Log("Time's up!");
+        GameEvent.TriggerTimeOut();
     }
 
     public void TimeReset()

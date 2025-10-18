@@ -7,52 +7,64 @@ public class GameManager : MonoBehaviour
     private int number1;
     private int number2;
     private int userResult = 0;
+    private bool isGameOver = false;    
     private IEnumerator Start()
     {
         if (UImanager == null)
         {
             UImanager = FindAnyObjectByType<UIManager>();
         }
+
         yield return null;
 
-        RandomNumber();
+        GameEvent.OnTimeOut += GameOver;
+        StartGame();
+
         //Call CheckAnswer when the input field editing ends (Enter or click outside)
         UImanager.mathQuestionUIManager.Result.onEndEdit.AddListener(CheckAnswer);// AddListener will call CheckAnswer function when onEndEdit is triggered (Enter or click outside)  
+
+    }
+
+    private void StartGame()
+    {
+        RandomNumber();
         UImanager.timeText.StartCountDown();
     }
 
     private void CheckAnswer(string text)
     {
         int result = number1 + number2;
-        if (string.IsNullOrWhiteSpace(text))
+        if (isGameOver == false)
         {
-            Debug.LogWarning("NULL");
-            return;
-        }
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                Debug.LogWarning("NULL");
+                return;
+            }
 
-        bool success = int.TryParse(text, out userResult);
+            bool success = int.TryParse(text, out userResult);
 
-        if (!success)
-        {
-            Debug.LogWarning("INCORRECT FORMAT");
-            return;
-        }
+            if (!success)
+            {
+                Debug.LogWarning("INCORRECT FORMAT");
+                return;
+            }
 
-        if (result == userResult)
-        {
-            Debug.Log("Correct");
-            UImanager.timeText.TimeStop();
-            UImanager.streakText.IncreaseScore();
-            AudioManager.Instance.PlayCorrectSound();
-            RandomNumber();
-            ResetQuestion();
+            if (result == userResult)
+            {
+                UImanager.timeText.TimeStop();
+                UImanager.streakText.IncreaseScore();
+                AudioManager.Instance.PlayCorrectSound();
+                RandomNumber();
+                ResetQuestion();
+            }
+            else
+            {
+                AudioManager.Instance.PlayWrongSound();
+                UImanager.streakText.ResetScore();
+            }
         }
-        else
-        {
-            Debug.Log("Wrong");
-            AudioManager.Instance.PlayWrongSound();
-            UImanager.streakText.ResetScore();
-        }
+        else return;
     }
     private void RandomNumber()
     {
@@ -75,5 +87,20 @@ public class GameManager : MonoBehaviour
 
         UImanager.timeText.TimeReset();
         UImanager.timeText.StartCountDown();
+    }
+
+    private void GameOver()
+    {
+        isGameOver = true;
+        UImanager.GameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    public void Retry()
+    {
+        isGameOver = false;
+        UImanager.GameOverPanel.SetActive(false);
+        Time.timeScale = 1f;
+        ResetQuestion();
+        UImanager.streakText.ResetScore();
     }
 }

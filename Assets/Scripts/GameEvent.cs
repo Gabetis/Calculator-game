@@ -1,6 +1,8 @@
 using UnityEngine;
-
-public class GameEvent : MonoBehaviour
+using System;
+using UnityEngine.Events;
+public static class GameEvent
 {
-    //public static 
+    public static event Action OnTimeOut;
+    public static void TriggerTimeOut() => OnTimeOut?.Invoke(); 
 }
