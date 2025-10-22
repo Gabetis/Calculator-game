@@ -1378,6 +1378,7 @@ MonoBehaviour:
   SFX:
   - {fileID: 8300000, guid: 3615781ceb3e7f9408950c7b323bddf6, type: 3}
   - {fileID: 8300000, guid: c661b99cba0dc1a4388bb9aabdda142a, type: 3}
+  - {fileID: 8300000, guid: 31640d8fdcf57184992ed1a2186a5677, type: 3}
 --- !u!4 &727172062
 Transform:
   m_ObjectHideFlags: 0
