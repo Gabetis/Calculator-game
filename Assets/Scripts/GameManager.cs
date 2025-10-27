@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
         yield return null;
 
+        SetOrientation();
         GameEvent.OnTimeOut += GameOver;
         StartGame();
 
@@ -103,4 +104,9 @@ public class GameManager : MonoBehaviour
         ResetQuestion();
         UImanager.streakText.ResetScore();
     }
+
+    public void SetOrientation()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+    }    
 }
