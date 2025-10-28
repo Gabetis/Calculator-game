@@ -28,4 +28,8 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(SFX[1]);
     }
 
+    public void TickTingSound()
+    {
+        audioSource.PlayOneShot(SFX[2]);
+    }    
 }
