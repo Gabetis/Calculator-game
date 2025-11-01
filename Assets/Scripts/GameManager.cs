@@ -14,11 +14,11 @@ public class GameManager : MonoBehaviour
         {
             UImanager = FindAnyObjectByType<UIManager>();
         }
-
         yield return null;
 
-        SetOrientation();
         GameEvent.OnTimeOut += GameOver;
+
+        SetOrientation();
         StartGame();
 
         //Call CheckAnswer when the input field editing ends (Enter or click outside)
@@ -107,6 +107,9 @@ public class GameManager : MonoBehaviour
 
     public void SetOrientation()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        if(SceneLoader.Instance.CurrentScence() == "MenuScene")
+            Screen.orientation = ScreenOrientation.Portrait;
+        else
+            Screen.orientation = ScreenOrientation.LandscapeLeft;   
     }    
 }

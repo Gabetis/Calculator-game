@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     public static ButtonManager Instance { get; private set; }
@@ -21,6 +20,6 @@ public class ButtonManager : MonoBehaviour
 
     public void PlayButtonClick()
     {
-        SceneManager.LoadScene("GamePlay");
+        SceneLoader.Instance.LoadScene("GameScene");
     }
 }
