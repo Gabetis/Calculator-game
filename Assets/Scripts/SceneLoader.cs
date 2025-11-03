@@ -26,13 +26,4 @@ public class SceneLoader : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         return currentScene.name;
     }
-
-    public void SetOrientation()
-    {
-        if (SceneLoader.Instance.CurrentScence() == "MenuScene")
-            Screen.orientation = ScreenOrientation.Portrait;
-        else
-            Screen.orientation = ScreenOrientation.LandscapeLeft;
-    }
-
 }

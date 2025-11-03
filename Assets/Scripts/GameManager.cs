@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
                 UImanager.timeText.TimeStop();
                 UImanager.streakText.IncreaseScore();
                 AudioManager.Instance.PlayCorrectSound();
+                GameEvent.TriggerIncreaseScore();
                 RandomNumber();
                 ResetQuestion();
             }
