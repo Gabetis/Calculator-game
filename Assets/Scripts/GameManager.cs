@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        GameEvent.OnTimeOut -= GameOver;
+    }
+
     private void StartGame()
     {
         RandomNumber();
@@ -100,11 +105,20 @@ public class GameManager : MonoBehaviour
     public void Retry()
     {
         isGameOver = false;
+        AudioManager.Instance.PlayButtonClickSound();
         UImanager.GameOverPanel.SetActive(false);
         Time.timeScale = 1f;
         ResetQuestion();
         UImanager.streakText.ResetScore();
     }
+
+    public void BackToMenu()
+    {
+        AudioManager.Instance.PlayButtonClickSound();
+        SceneLoader.Instance.LoadScene("MenuScene");
+        Time.timeScale = 1f;
+    }
+
 
     public void SetOrientation()
     {

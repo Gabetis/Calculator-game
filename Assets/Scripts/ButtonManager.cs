@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     public static ButtonManager Instance { get; private set; }
+    [SerializeField] private Button playButton;
 
     private void Awake()
     {
@@ -15,11 +17,16 @@ public class ButtonManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Debug.Log(Screen.orientation);
+        if(playButton == null)
+        {
+            playButton = GetComponent<Button>();
+        }
+        playButton.onClick.AddListener(OnPlayClick);
     }
 
-    public void PlayButtonClick()
+    public void OnPlayClick()
     {
+        AudioManager.Instance.PlayButtonClickSound();
         SceneLoader.Instance.LoadScene("GameScene");
-    }
+    }            
 }
