@@ -8,4 +8,7 @@ public static class GameEvent
 
     public static event Action OnIncreaseScore;
     public static void TriggerIncreaseScore() => OnIncreaseScore?.Invoke();
+
+    public static event Action<int> OnSaveBestStreak;   
+    public static void TriggerSaveBestStreak(int StreakScore) => OnSaveBestStreak?.Invoke(StreakScore);
 }

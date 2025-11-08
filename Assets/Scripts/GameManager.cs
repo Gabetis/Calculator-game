@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
             if (result == userResult)
             {
                 UImanager.timeText.TimeStop();
-                UImanager.streakText.IncreaseScore();
+                UImanager.streakText.IncreaseStreak();
                 AudioManager.Instance.PlayCorrectSound();
                 GameEvent.TriggerIncreaseScore();
                 RandomNumber();
@@ -68,7 +68,8 @@ public class GameManager : MonoBehaviour
             else
             {
                 AudioManager.Instance.PlayWrongSound();
-                UImanager.streakText.ResetScore();
+                UImanager.streakText.SaveBestStreak();
+                UImanager.streakText.ResetStreak();
             }
         }
         else return;
@@ -99,8 +100,10 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         isGameOver = true;
+        UImanager.streakText.SaveBestStreak();
         UImanager.GameOverPanel.SetActive(true);
         Time.timeScale = 0f;
+        UImanager.score.ResetScore();
     }
     public void Retry()
     {
@@ -109,7 +112,7 @@ public class GameManager : MonoBehaviour
         UImanager.GameOverPanel.SetActive(false);
         Time.timeScale = 1f;
         ResetQuestion();
-        UImanager.streakText.ResetScore();
+        UImanager.streakText.ResetStreak();
     }
 
     public void BackToMenu()
