@@ -10,7 +10,16 @@ public class UIManager : MonoBehaviour
     public StreakText streakText;
     public Best bestUI;
     public Score score;
+    public GameObject MenuPanel;
+    public GameObject SettingsPanel;
 
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
     private IEnumerator Start()
     {
         if (mathQuestionUIManager == null)
@@ -37,6 +46,14 @@ public class UIManager : MonoBehaviour
         if (score == null)
         {
             score = GetComponentInChildren<Score>();
+        }
+
+        if (SceneLoader.Instance.CurrentScence() == "MenuScene")
+        {
+            if (MenuPanel == null)
+            {
+                MenuPanel = transform.Find("Menu").gameObject;
+            }
         }
         yield return null;
     }
