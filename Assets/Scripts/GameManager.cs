@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
 
         GameEvent.OnTimeOut += GameOver;
 
-        SetOrientation();
         StartGame();
 
         //Call CheckAnswer when the input field editing ends (Enter or click outside)
@@ -121,13 +120,4 @@ public class GameManager : MonoBehaviour
         SceneLoader.Instance.LoadScene("MenuScene");
         Time.timeScale = 1f;
     }
-
-
-    public void SetOrientation()
-    {
-        if(SceneLoader.Instance.CurrentScence() == "MenuScene")
-            Screen.orientation = ScreenOrientation.Portrait;
-        else
-            Screen.orientation = ScreenOrientation.LandscapeLeft;   
-    }    
 }
