@@ -31,11 +31,13 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        // Initialize sliders and load saved volume settings
         bgmSlider.onValueChanged.AddListener(SetBGMVolume);
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
         LoadVolume();
 
+        // Apply loaded volume settings
         SetBGMVolume(bgmSlider.value);
         SetSFXVolume(sfxSlider.value);
 
