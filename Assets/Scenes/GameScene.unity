@@ -391,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &63368575
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &77088996
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &163382583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,6 +1770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &371258885
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,6 +3694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &727172060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3978,6 +3983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &733899084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4439,6 +4445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &893606553
 GameObject:
   m_ObjectHideFlags: 0
@@ -5317,6 +5324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &1285567157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5811,7 +5819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1632156351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6602,6 +6610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &1826512907
 GameObject:
   m_ObjectHideFlags: 0
@@ -7384,6 +7393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberGameobject: {fileID: 0}
   btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &2085857312
 GameObject:
   m_ObjectHideFlags: 0
