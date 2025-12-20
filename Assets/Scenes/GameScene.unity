@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 77089000}
   - component: {fileID: 77088999}
   - component: {fileID: 77088998}
+  - component: {fileID: 77089001}
   m_Layer: 5
   m_Name: Delete
   m_TagString: Untagged
@@ -650,6 +651,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77088996}
   m_CullTransparentMesh: 1
+--- !u!114 &77089001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77088996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295a3d2ff463fad439ed91b2eb882146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberGameobject: {fileID: 0}
+  btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &118229601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +1977,7 @@ GameObject:
   - component: {fileID: 386961729}
   - component: {fileID: 386961728}
   - component: {fileID: 386961727}
+  - component: {fileID: 386961730}
   m_Layer: 5
   m_Name: Enter
   m_TagString: Untagged
@@ -2070,6 +2087,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386961725}
   m_CullTransparentMesh: 1
+--- !u!114 &386961730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386961725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295a3d2ff463fad439ed91b2eb882146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberGameobject: {fileID: 0}
+  btn: {fileID: 0}
+  mathQuestionUIManager: {fileID: 0}
 --- !u!1 &424347910
 GameObject:
   m_ObjectHideFlags: 0

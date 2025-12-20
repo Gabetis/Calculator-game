@@ -3,11 +3,20 @@ using System.Collections;
 using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
     [SerializeField] private UIManager UImanager;
     private int number1;
     private int number2;
     private int userResult = 0;
-    private bool isGameOver = false;    
+    private bool isGameOver = false;
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
+
     private IEnumerator Start()
     {
         if (UImanager == null)
@@ -24,6 +33,11 @@ public class GameManager : MonoBehaviour
         UImanager.mathQuestionUIManager.Result.onEndEdit.AddListener(CheckAnswer);// AddListener will call CheckAnswer function when onEndEdit is triggered (Enter or click outside)  
 
     }
+
+    public void OnSubmitAnswer(string text)
+    {
+        CheckAnswer(text);
+    }    
 
     private void OnDestroy()
     {

@@ -67,6 +67,17 @@ public class PressNumberButto : MonoBehaviour
                 Debug.Log("Pressed 0");
                 mathQuestionUIManager.Result.text += "0";
                 break;
+            case "Delete":
+                Debug.Log("Pressed Delete");
+                if (mathQuestionUIManager.Result.text.Length > 0)
+                {
+                    mathQuestionUIManager.Result.text = mathQuestionUIManager.Result.text.Substring(0, mathQuestionUIManager.Result.text.Length - 1);
+                }
+                break;
+            case "Enter":
+                Debug.Log("Pressed Enter");
+                GameManager.Instance.OnSubmitAnswer(mathQuestionUIManager.Result.text);
+                break;
         }
     }
 }
