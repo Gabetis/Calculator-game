@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PressNumberButto : MonoBehaviour
+public class GameplayButton : MonoBehaviour
 {
     [SerializeField] private GameObject numberGameobject;
     [SerializeField] private Button btn;
