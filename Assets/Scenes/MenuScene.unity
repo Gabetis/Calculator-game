@@ -2556,8 +2556,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 585646116a684824094dcb065e0c340a, type: 3}
   bgmSource: {fileID: 234565780}
   sfxSource: {fileID: 1632640421}
-  bgmSlider: {fileID: 1352121393}
-  sfxSlider: {fileID: 1047303617}
+  bgmSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!4 &1597631424
 Transform:
   m_ObjectHideFlags: 0

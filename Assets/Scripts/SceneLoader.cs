@@ -9,6 +9,8 @@ public class SceneLoader : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            SceneManager.sceneLoaded += OnSceneLoadedComplete;// SceneManager.sceneLoaded is an event that is triggered when loading a scene is complete
         }
         else
         {
@@ -20,6 +22,11 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void OnSceneLoadedComplete(Scene scene, LoadSceneMode mode)
+    {
+        GameEvent.TriggerChangeScene();
+    }    
 
     public string CurrentScence()
     {

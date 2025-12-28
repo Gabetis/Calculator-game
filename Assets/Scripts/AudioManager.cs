@@ -27,6 +27,10 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        GameEvent.OnChangeScene += AddSlider;
+
+        AddSlider();
     }
 
     private void Start()
@@ -48,6 +52,21 @@ public class AudioManager : MonoBehaviour
     public void PlayWrongSound() => sfxSource.PlayOneShot(SFX[1]);
     public void TickTingSound() => sfxSource.PlayOneShot(SFX[2]);
     public void PlayButtonClickSound() => sfxSource.PlayOneShot(SFX[3]);
+
+    public void AddSlider()
+    {
+        if (bgmSlider == null)
+        {
+            var allSliders = FindObjectsByType<Slider>(FindObjectsInactive.Include, FindObjectsSortMode.None); //find all the slider in the scene including inactive objects
+            bgmSlider = System.Array.Find(allSliders, s => s.name == "BGMSlider"); //find the slider with the name "BGMSlider" in the array
+        }
+
+        if (sfxSlider == null)
+        {
+            var allSliders = FindObjectsByType<Slider>(FindObjectsInactive.Include, FindObjectsSortMode.None); //find all the slider in the scene including inactive objects
+            sfxSlider = System.Array.Find(allSliders, s => s.name == "SFXSlider"); //find the slider with the name "SFXSlider" in the array
+        }
+    }
 
     public void SetBGMVolume(float value)
     {

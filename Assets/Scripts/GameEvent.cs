@@ -11,4 +11,7 @@ public static class GameEvent
 
     public static event Action<int> OnSaveBestStreak;   
     public static void TriggerSaveBestStreak(int StreakScore) => OnSaveBestStreak?.Invoke(StreakScore);
+
+    public static event Action OnChangeScene;
+    public static void TriggerChangeScene() => OnChangeScene?.Invoke();
 }
