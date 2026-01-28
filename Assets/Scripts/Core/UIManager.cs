@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public Score score;
     public GameObject MenuPanel;
     public GameObject SettingsPanel;
+    public GameObject GameModePanel;
 
     private void Awake()
     {

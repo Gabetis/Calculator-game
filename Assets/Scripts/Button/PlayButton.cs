@@ -15,6 +15,6 @@ public class PlayButton : MonoBehaviour
     public void OnPlayButtonClicked()
     {
         AudioManager.Instance.PlayButtonClickSound();
-        SceneLoader.Instance.LoadScene("GameScene");
+        UIManager.Instance.GameModePanel.SetActive(true);
     }
 }
