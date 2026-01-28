@@ -3431,6 +3431,7 @@ MonoBehaviour:
   score: {fileID: 0}
   MenuPanel: {fileID: 0}
   SettingsPanel: {fileID: 0}
+  GameModePanel: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
