@@ -21,11 +21,17 @@ public class GameModeManager : MonoBehaviour
         Add,
         Sub,
         Mul,
-        Div
+        Div,
+        Random  
     }
 
     public void SetGameMode(GameModeType mode)
     {
         CurrentGameMode = mode;
+    }
+
+    public void CurrentMode()
+    {
+        Debug.Log("Current Game Mode: " + CurrentGameMode.ToString());
     }
 }
