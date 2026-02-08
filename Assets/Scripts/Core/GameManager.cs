@@ -11,13 +11,7 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false;
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-            Destroy(gameObject);
+        Instance = this;
     }
 
     private IEnumerator Start()
@@ -40,7 +34,7 @@ public class GameManager : MonoBehaviour
     public void OnSubmitAnswer(string text)
     {
         CheckAnswer(text);
-    }    
+    }
 
     private void OnDestroy()
     {
@@ -49,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        RandomNumber();
+        CreateQuestion();
         UImanager.timeText.StartCountDown();
     }
 
@@ -78,7 +72,7 @@ public class GameManager : MonoBehaviour
                 UImanager.streakText.IncreaseStreak();
                 AudioManager.Instance.PlayCorrectSound();
                 GameEvent.TriggerIncreaseScore();
-                RandomNumber();
+                CreateQuestion();
                 ResetQuestion();
             }
             else
@@ -89,8 +83,8 @@ public class GameManager : MonoBehaviour
             }
         }
         else return;
-    }
-    private void RandomNumber()
+    } //bug
+    private void CreateQuestion()
     {
         number1 = Random.Range(0, 10);
         number2 = Random.Range(0, 10);
@@ -98,7 +92,7 @@ public class GameManager : MonoBehaviour
         UImanager.mathQuestionUIManager.Number1.text = number1.ToString();
         UImanager.mathQuestionUIManager.Number2.text = number2.ToString();
 
-        UImanager.mathQuestionUIManager.Operator.text = "+";
+        CreateOperator();
     }
 
     private void ResetQuestion()
@@ -121,6 +115,37 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         UImanager.score.ResetScore();
     }
+
+    private void CreateOperator()
+    {
+        if (GameModeManager.Instance.CurrentGameMode == GameModeManager.GameModeType.Add)
+            UImanager.mathQuestionUIManager.Operator.text = "+";
+        else if (GameModeManager.Instance.CurrentGameMode == GameModeManager.GameModeType.Sub)
+            UImanager.mathQuestionUIManager.Operator.text = "-";
+        else if (GameModeManager.Instance.CurrentGameMode == GameModeManager.GameModeType.Mul)
+            UImanager.mathQuestionUIManager.Operator.text = "×";
+        else if (GameModeManager.Instance.CurrentGameMode == GameModeManager.GameModeType.Div)
+            UImanager.mathQuestionUIManager.Operator.text = "÷";
+        else if (GameModeManager.Instance.CurrentGameMode == GameModeManager.GameModeType.Random)
+        {
+            int randomOperator = Random.Range(0, 4);
+            switch (randomOperator)
+            {
+                case 0:
+                    UImanager.mathQuestionUIManager.Operator.text = "+";
+                    break;
+                case 1:
+                    UImanager.mathQuestionUIManager.Operator.text = "-";
+                    break;
+                case 2:
+                    UImanager.mathQuestionUIManager.Operator.text = "×";
+                    break;
+                case 3:
+                    UImanager.mathQuestionUIManager.Operator.text = "÷";
+                    break;
+            }
+        }
+    }
     public void Retry()
     {
         isGameOver = false;
@@ -133,6 +158,7 @@ public class GameManager : MonoBehaviour
 
     public void BackToMenu()
     {
+        isGameOver = false;
         AudioManager.Instance.PlayButtonClickSound();
         SceneLoader.Instance.LoadScene("MenuScene");
         Time.timeScale = 1f;

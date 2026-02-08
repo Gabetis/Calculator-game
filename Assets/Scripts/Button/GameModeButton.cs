@@ -31,23 +31,23 @@ public class GameModeButton : MonoBehaviour
         {
             case GameModeType.Add:
                 GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Add);
-                GameModeManager.Instance.CurrentMode();
+                SceneLoader.Instance.LoadScene("GameScene");
                 break;
             case GameModeType.Sub:
                 GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Sub);
-                GameModeManager.Instance.CurrentMode();
+                SceneLoader.Instance.LoadScene("GameScene");
                 break;
             case GameModeType.Mul:
                 GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Mul);
-                GameModeManager.Instance.CurrentMode();
+                SceneLoader.Instance.LoadScene("GameScene");
                 break;
             case GameModeType.Div:
                 GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Div);
-                GameModeManager.Instance.CurrentMode();
+                SceneLoader.Instance.LoadScene("GameScene");
                 break;
             case GameModeType.Random:
                 GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Random);
-                GameModeManager.Instance.CurrentMode();
+                SceneLoader.Instance.LoadScene("GameScene");
                 break;
         }
         //UIManager.Instance.MenuPanel.SetActive(false);
