@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Source")]
     [SerializeField] private AudioSource bgmSource;
     [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource clockSource;
 
     [Header("Slider")]
     [SerializeField] private Slider bgmSlider;
@@ -50,8 +51,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayCorrectSound() => sfxSource.PlayOneShot(SFX[0]);
     public void PlayWrongSound() => sfxSource.PlayOneShot(SFX[1]);
-    public void TickTingSound() => sfxSource.PlayOneShot(SFX[2]);
-    public void PlayButtonClickSound() => sfxSource.PlayOneShot(SFX[3]);
+    public void PlayButtonClickSound() => sfxSource.PlayOneShot(SFX[2]);
+    public void TickTingSound() => clockSource.PlayOneShot(SFX[3]);
 
     public void AddSlider()
     {

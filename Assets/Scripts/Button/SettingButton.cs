@@ -15,7 +15,16 @@ public class SettingButton : MonoBehaviour
     public void OnSettingButtonClicked()
     {
         AudioManager.Instance.PlayButtonClickSound();
-        UIManager.Instance.MenuPanel.SetActive(false);
-        UIManager.Instance.SettingsPanel.SetActive(true);
+        if (SceneLoader.Instance.CurrentScence() == "MenuScene")
+        {
+            UIManager.Instance.MenuPanel.SetActive(false);
+            UIManager.Instance.SettingsPanel.SetActive(true);
+        }
+        else
+        {
+            UIManager.Instance.SettingsPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
+
 }

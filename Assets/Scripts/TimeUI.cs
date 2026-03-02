@@ -33,6 +33,7 @@ public class TimeUI : MonoBehaviour
             time--;
             timeText.text = time.ToString();
             AudioManager.Instance.TickTingSound();
+
             yield return new WaitForSeconds(1f);
         }
 
