@@ -36,11 +36,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        LoadVolume();
+
         // Initialize sliders and load saved volume settings
         bgmSlider.onValueChanged.AddListener(SetBGMVolume);
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
-
-        LoadVolume();
 
         // Apply loaded volume settings
         SetBGMVolume(bgmSlider.value);
@@ -60,12 +60,28 @@ public class AudioManager : MonoBehaviour
         {
             var allSliders = FindObjectsByType<Slider>(FindObjectsInactive.Include, FindObjectsSortMode.None); //find all the slider in the scene including inactive objects
             bgmSlider = System.Array.Find(allSliders, s => s.name == "BGMSlider"); //find the slider with the name "BGMSlider" in the array
+            if (bgmSlider != null)
+            {
+                if (!PlayerPrefs.HasKey("bgmVolume"))
+                    PlayerPrefs.SetFloat("bgmVolume", 1f);
+                else
+                    bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume", 0f);
+                bgmSlider.onValueChanged.AddListener(SetBGMVolume);
+            }
         }
 
         if (sfxSlider == null)
         {
             var allSliders = FindObjectsByType<Slider>(FindObjectsInactive.Include, FindObjectsSortMode.None); //find all the slider in the scene including inactive objects
             sfxSlider = System.Array.Find(allSliders, s => s.name == "SFXSlider"); //find the slider with the name "SFXSlider" in the array
+            if (sfxSlider != null)
+            {
+                if (!PlayerPrefs.HasKey("sfxVolume"))
+                    PlayerPrefs.SetFloat("sfxVolume", 1f);
+                else
+                    sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0f);
+                sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+            }
         }
     }
 
@@ -86,16 +102,12 @@ public class AudioManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("bgmVolume"))
             PlayerPrefs.SetFloat("bgmVolume", 1f);
         else
-        {
             bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume", 0f);
-        }
 
-        if(!PlayerPrefs.HasKey("sfxVolume"))
+        if (!PlayerPrefs.HasKey("sfxVolume"))
             PlayerPrefs.SetFloat("sfxVolume", 1f);
         else
-        {
             sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0f);
-        }
     }
 
     public void PlayBGM()
@@ -103,5 +115,10 @@ public class AudioManager : MonoBehaviour
         bgmSource.clip = BGM;
         bgmSource.loop = true;
         bgmSource.Play();
+    }
+
+    private void OnDestroy()
+    {
+        GameEvent.OnChangeScene -= AddSlider;
     }
 }
