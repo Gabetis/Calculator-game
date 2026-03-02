@@ -36,15 +36,15 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        LoadVolume();
+        //LoadVolume();
 
-        // Initialize sliders and load saved volume settings
-        bgmSlider.onValueChanged.AddListener(SetBGMVolume);
-        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        //Initialize sliders and load saved volume settings
+        //bgmSlider.onValueChanged.AddListener(SetBGMVolume);
+        //sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
-        // Apply loaded volume settings
-        SetBGMVolume(bgmSlider.value);
-        SetSFXVolume(sfxSlider.value);
+        //Apply loaded volume settings
+        //SetBGMVolume(bgmSlider.value);
+        //SetSFXVolume(sfxSlider.value);
 
         PlayBGM();
     }
@@ -63,9 +63,13 @@ public class AudioManager : MonoBehaviour
             if (bgmSlider != null)
             {
                 if (!PlayerPrefs.HasKey("bgmVolume"))
+                {
                     PlayerPrefs.SetFloat("bgmVolume", 1f);
+                    bgmSlider.value = 1f;
+                }
                 else
                     bgmSlider.value = PlayerPrefs.GetFloat("bgmVolume", 0f);
+                SetBGMVolume(bgmSlider.value); //set the bgmSource volume to the value of the slider
                 bgmSlider.onValueChanged.AddListener(SetBGMVolume);
             }
         }
@@ -77,9 +81,13 @@ public class AudioManager : MonoBehaviour
             if (sfxSlider != null)
             {
                 if (!PlayerPrefs.HasKey("sfxVolume"))
+                {
                     PlayerPrefs.SetFloat("sfxVolume", 1f);
+                    sfxSlider.value = 1f;
+                }
                 else
                     sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0f);
+                SetSFXVolume(sfxSlider.value); //set the sfxSource volume to the value of the slider
                 sfxSlider.onValueChanged.AddListener(SetSFXVolume);
             }
         }
