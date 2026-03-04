@@ -6,7 +6,7 @@ public class GameModeButton : MonoBehaviour
     private enum GameModeType
     {
         Add,
-        Sub,
+        Minus,
         Mul,
         Div,
         Random
@@ -31,25 +31,24 @@ public class GameModeButton : MonoBehaviour
         {
             case GameModeType.Add:
                 GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Add);
-                SceneLoader.Instance.LoadScene("GameScene");
+                UIManager.Instance.GameModePanel.SetActive(false);
+                UIManager.Instance.AddPanel.SetActive(true);
                 break;
-            case GameModeType.Sub:
-                GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Sub);
-                SceneLoader.Instance.LoadScene("GameScene");
+            case GameModeType.Minus:
+                GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Minus);
+                UIManager.Instance.GameModePanel.SetActive(false);
+                UIManager.Instance.MinusPanel.SetActive(true);
                 break;
             case GameModeType.Mul:
                 GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Mul);
-                SceneLoader.Instance.LoadScene("GameScene");
+                UIManager.Instance.GameModePanel.SetActive(false);
+                UIManager.Instance.MulPanel.SetActive(true);
                 break;
             case GameModeType.Div:
                 GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Div);
-                SceneLoader.Instance.LoadScene("GameScene");
-                break;
-            case GameModeType.Random:
-                GameModeManager.Instance.SetGameMode(GameModeManager.GameModeType.Random);
-                SceneLoader.Instance.LoadScene("GameScene");
+                UIManager.Instance.GameModePanel.SetActive(false);
+                UIManager.Instance.DivPanel.SetActive(true);
                 break;
         }
-        //UIManager.Instance.MenuPanel.SetActive(false);
     }
 }

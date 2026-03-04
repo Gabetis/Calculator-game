@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
 
         //Call CheckAnswer when the input field editing ends (Enter or click outside)
         UImanager.mathQuestionUIManager.Result.onEndEdit.AddListener(CheckAnswer);// AddListener will call CheckAnswer function when onEndEdit is triggered (Enter or click outside)  
-
     }
 
     public void OnSubmitAnswer(string text)
@@ -120,7 +119,7 @@ public class GameManager : MonoBehaviour
     {
         if (GameModeManager.Instance.CurrentGameMode == GameModeManager.GameModeType.Add)
             UImanager.mathQuestionUIManager.Operator.text = "+";
-        else if (GameModeManager.Instance.CurrentGameMode == GameModeManager.GameModeType.Sub)
+        else if (GameModeManager.Instance.CurrentGameMode == GameModeManager.GameModeType.Minus)
             UImanager.mathQuestionUIManager.Operator.text = "-";
         else if (GameModeManager.Instance.CurrentGameMode == GameModeManager.GameModeType.Mul)
             UImanager.mathQuestionUIManager.Operator.text = "×";
@@ -133,7 +132,7 @@ public class GameManager : MonoBehaviour
             {
                 case 0:
                     UImanager.mathQuestionUIManager.Operator.text = "+";
-                    break;
+                    break; 
                 case 1:
                     UImanager.mathQuestionUIManager.Operator.text = "-";
                     break;
@@ -156,11 +155,11 @@ public class GameManager : MonoBehaviour
         UImanager.streakText.ResetStreak();
     }
 
-    public void BackToMenu()
-    {
-        isGameOver = false;
-        AudioManager.Instance.PlayButtonClickSound();
-        SceneLoader.Instance.LoadScene("MenuScene");
-        Time.timeScale = 1f;
-    }
+    //public void BackToMenu()
+    //{
+    //    isGameOver = false;
+    //    AudioManager.Instance.PlayButtonClickSound();
+    //    SceneLoader.Instance.LoadScene("MenuScene");
+    //    Time.timeScale = 1f;
+    //}
 }

@@ -19,7 +19,7 @@ public class GameModeManager : MonoBehaviour
     {
         None,
         Add,
-        Sub,
+        Minus,
         Mul,
         Div,
         Random  
