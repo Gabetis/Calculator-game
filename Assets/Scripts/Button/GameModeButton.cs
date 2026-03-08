@@ -8,8 +8,7 @@ public class GameModeButton : MonoBehaviour
         Add,
         Minus,
         Mul,
-        Div,
-        Random
+        Div
     }
 
     [SerializeField] private Button gameModeButton;

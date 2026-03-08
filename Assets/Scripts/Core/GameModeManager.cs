@@ -21,8 +21,7 @@ public class GameModeManager : MonoBehaviour
         Add,
         Minus,
         Mul,
-        Div,
-        Random  
+        Div
     }
 
     public void SetGameMode(GameModeType mode)
