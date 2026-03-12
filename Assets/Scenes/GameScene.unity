@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '10
+  m_text: '20
 
 '
   m_isRightToLeft: 0
@@ -3715,6 +3715,10 @@ MonoBehaviour:
   MenuPanel: {fileID: 0}
   SettingsPanel: {fileID: 1178476448}
   GameModePanel: {fileID: 0}
+  AddPanel: {fileID: 0}
+  MinusPanel: {fileID: 0}
+  MulPanel: {fileID: 0}
+  DivPanel: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -5605,6 +5609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UImanager: {fileID: 0}
+  currentQuestion: {fileID: 0}
 --- !u!4 &1119894351
 Transform:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class TimeUI : MonoBehaviour
 
     public void TimeReset()
     {
-        time = 11;
+        time = 21;
         timeText.text = time.ToString();
     }
 

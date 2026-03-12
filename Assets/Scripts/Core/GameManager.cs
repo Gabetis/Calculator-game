@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     [SerializeField] private UIManager UImanager;
-    [SerializeField] private DifficultyConfig difficulty;
     [SerializeField] private CreateQuestion currentQuestion;
     private int userResult = 0;
     private bool isGameOver = false;
@@ -84,8 +83,8 @@ public class GameManager : MonoBehaviour
     private void CreateQuestion()
     {
         currentQuestion = new CreateQuestion(
-            difficulty.Min,
-            difficulty.Max,
+            GameModeManager.Instance.MinNumber,
+            GameModeManager.Instance.MaxNumber,
             GameModeManager.Instance.CurrentGameMode
         );
 
@@ -139,6 +138,15 @@ public class GameManager : MonoBehaviour
         ResetQuestion();
         UImanager.streakText.ResetStreak();
     }
+
+    public void BackToMenu()
+    {
+        SceneLoader.Instance.LoadScene("MenuScene");
+        isGameOver = false;
+        AudioManager.Instance.PlayButtonClickSound();
+        UImanager.GameOverPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }    
 
     private void OnDestroy()
     {
