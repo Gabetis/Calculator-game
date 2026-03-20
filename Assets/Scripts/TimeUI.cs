@@ -15,7 +15,7 @@ public class TimeUI : MonoBehaviour
             timeText = GetComponent<TextMeshProUGUI>();
         }
 
-        if(uiManager == null)
+        if (uiManager == null)
         {
             uiManager = FindAnyObjectByType<UIManager>();
         }
@@ -52,5 +52,10 @@ public class TimeUI : MonoBehaviour
         {
             StopCoroutine(startCountDown);
         }
+    }
+
+    public void ClearTime()
+    {
+        timeText.text = "";
     }
 }

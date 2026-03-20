@@ -36,8 +36,23 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        CreateQuestion();
-        UImanager.timeText.StartCountDown();
+        if (SceneLoader.Instance.CurrentScence() == "GameScene")
+        { 
+            CreateQuestion();
+
+            bool isTimeOn = PlayerPrefs.GetInt("TimeToggle", 0) == 1;
+
+            if (isTimeOn)
+            {
+                UImanager.timeText.TimeReset();
+                UImanager.timeText.StartCountDown();
+            }
+            else
+            {
+                UImanager.timeText.TimeStop();
+                UImanager.timeText.ClearTime();
+            }    
+        }
     }
 
     private void CheckAnswer(string text)
