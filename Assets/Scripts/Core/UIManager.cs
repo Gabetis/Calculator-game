@@ -59,26 +59,26 @@ public class UIManager : MonoBehaviour
             {
                 MenuPanel = transform.Find("Menu").gameObject;
             }
-        }
 
-        if(AddPanel == null)
-        {
-            AddPanel = MenuPanel.transform.Find("AddPanel").gameObject;
-        }
+            if (AddPanel == null)
+            {
+                AddPanel = MenuPanel.transform.Find("AddPanel").gameObject;
+            }
 
-        if(MinusPanel == null)
-        {
-            MinusPanel = MenuPanel.transform.Find("MinusPanel").gameObject;
-        }
+            if (MinusPanel == null)
+            {
+                MinusPanel = MenuPanel.transform.Find("MinusPanel").gameObject;
+            }
 
-        if(DivPanel == null)
-        {
-            DivPanel = MenuPanel.transform.Find("MulPanel").gameObject;
-        }
+            if (DivPanel == null)
+            {
+                DivPanel = MenuPanel.transform.Find("MulPanel").gameObject;
+            }
 
-        if(MulPanel == null)
-        {
-            MulPanel = MenuPanel.transform.Find("DivPanel").gameObject;
+            if (MulPanel == null)
+            {
+                MulPanel = MenuPanel.transform.Find("DivPanel").gameObject;
+            }
         }
 
         yield return null;
