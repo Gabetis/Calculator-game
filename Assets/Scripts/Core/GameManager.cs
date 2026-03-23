@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         if (SceneLoader.Instance.CurrentScence() == "GameScene")
-        { 
+        {
             CreateQuestion();
 
             bool isTimeOn = PlayerPrefs.GetInt("TimeToggle", 0) == 1;
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
             {
                 UImanager.timeText.TimeStop();
                 UImanager.timeText.ClearTime();
-            }    
+            }
         }
     }
 
@@ -120,8 +120,15 @@ public class GameManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(input.gameObject);
         input.ActivateInputField();
 
-        UImanager.timeText.TimeReset();
-        UImanager.timeText.StartCountDown();
+        bool isTimeOn = PlayerPrefs.GetInt("TimeToggle", 0) == 1;
+
+        if (isTimeOn)
+        {
+            //UImanager.timeText.TimeStop();
+            //UImanager.timeText.ClearTime();
+            UImanager.timeText.TimeReset();
+            UImanager.timeText.StartCountDown();
+        }
     }
 
     private void GameOver()
@@ -143,7 +150,7 @@ public class GameManager : MonoBehaviour
             UImanager.mathQuestionUIManager.Operator.text = "×";
         else if (currentMode == GameModeManager.GameModeType.Div)
             UImanager.mathQuestionUIManager.Operator.text = "÷";
-    } 
+    }
     public void Retry()
     {
         isGameOver = false;
@@ -161,7 +168,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayButtonClickSound();
         UImanager.GameOverPanel.SetActive(false);
         Time.timeScale = 1f;
-    }    
+    }
 
     private void OnDestroy()
     {
