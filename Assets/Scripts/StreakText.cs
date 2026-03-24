@@ -8,7 +8,7 @@ public class StreakText : MonoBehaviour
     {
         if (scoreStreakText == null)
         {
-            scoreStreakText = transform.Find("StreakScore").GetComponentInChildren<TextMeshProUGUI>();
+            scoreStreakText = transform.Find("StreakScore").GetComponent<TextMeshProUGUI>();
         }    
     }
 

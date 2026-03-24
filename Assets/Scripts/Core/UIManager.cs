@@ -89,4 +89,18 @@ public class UIManager : MonoBehaviour
         if (bestUI != null)
             bestUI.SaveBestStreak(streak);
     }
+
+    public void HideScoreUI()
+    {
+        streakText.gameObject.SetActive(false);
+        score.gameObject.SetActive(false);
+        bestUI.gameObject.SetActive(false);
+    }
+
+    public void ShowScoreUI()
+    {
+        streakText.gameObject.SetActive(true);
+        score.gameObject.SetActive(true);
+        bestUI.gameObject.SetActive(true);
+    }
 }

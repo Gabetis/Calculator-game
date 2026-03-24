@@ -4,30 +4,36 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    private int currentScore = 0;
 
     private void Awake()
     {
         if (scoreText == null)
         {
-            scoreText = GetComponent<TextMeshProUGUI>();
+            scoreText = transform.Find("ScoreText").GetComponent<TextMeshProUGUI>();
         }
-        GameEvent.OnIncreaseScore += IncreaseScore;
     }
-
     public void IncreaseScore()
     {
-        int score = int.Parse(scoreText.text);
-        score++;
-        UpdateScore(score);
-    }    
+        currentScore++;
+        UpdateScore(currentScore);
+    }
 
     public void UpdateScore(int score)
     {
         scoreText.text = score.ToString();
-    }    
+    }
 
     public void ResetScore()
     {
+        currentScore = 0;
         scoreText.text = "0";
+    }
+
+    public void SaveBestScore()
+    {
+        int currentScore = int.Parse(scoreText.text);
+        Debug.Log("Current Score: " + currentScore);
+        GameEvent.TriggerSaveBestScore(currentScore);
     }
 }

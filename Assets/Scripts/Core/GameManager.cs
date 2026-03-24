@@ -39,18 +39,19 @@ public class GameManager : MonoBehaviour
         if (SceneLoader.Instance.CurrentScence() == "GameScene")
         {
             CreateQuestion();
-
             bool isTimeOn = PlayerPrefs.GetInt("TimeToggle", 0) == 1;
 
             if (isTimeOn)
             {
                 UImanager.timeText.TimeReset();
                 UImanager.timeText.StartCountDown();
+                UImanager.ShowScoreUI();
             }
             else
             {
                 UImanager.timeText.TimeStop();
                 UImanager.timeText.ClearTime();
+                UImanager.HideScoreUI();
             }
         }
     }
@@ -82,7 +83,13 @@ public class GameManager : MonoBehaviour
         UImanager.timeText.TimeStop();
         UImanager.streakText.IncreaseStreak();
         AudioManager.Instance.PlayCorrectSound();
-        GameEvent.TriggerIncreaseScore();
+
+        bool isTimeOn = PlayerPrefs.GetInt("TimeToggle", 0) == 1;
+
+        if (isTimeOn)
+        {
+            UImanager.score.IncreaseScore();
+        }
 
         CreateQuestion();
         ResetQuestion();
@@ -132,10 +139,13 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         isGameOver = true;
-        UImanager.streakText.SaveBestStreak();
+
         UImanager.GameOverPanel.SetActive(true);
+
+        UImanager.streakText.SaveBestStreak();
+        UImanager.score.SaveBestScore();
+
         Time.timeScale = 0f;
-        UImanager.score.ResetScore();
     }
 
     private void CreateOperator(GameModeManager.GameModeType currentMode)
@@ -157,6 +167,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         ResetQuestion();
         UImanager.streakText.ResetStreak();
+        UImanager.score.ResetScore();
     }
 
     public void BackToMenu()
