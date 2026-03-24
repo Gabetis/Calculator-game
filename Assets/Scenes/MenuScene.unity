@@ -647,6 +647,7 @@ GameObject:
   - component: {fileID: 223770446}
   - component: {fileID: 223770445}
   - component: {fileID: 223770444}
+  - component: {fileID: 223770447}
   m_Layer: 5
   m_Name: "5 S\u1ED0"
   m_TagString: Untagged
@@ -756,6 +757,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223770442}
   m_CullTransparentMesh: 1
+--- !u!114 &223770447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223770442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2df277dd3dbc86418e5b9cc3903c62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
+  difficultButton: {fileID: 0}
+  min: 10000
+  max: 99999
 --- !u!1 &234565779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5339,7 +5355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultButton: {fileID: 0}
-  min: 1
+  min: 0
   max: 9
 --- !u!1 &1205314256
 GameObject:
@@ -5353,6 +5369,7 @@ GameObject:
   - component: {fileID: 1205314260}
   - component: {fileID: 1205314259}
   - component: {fileID: 1205314258}
+  - component: {fileID: 1205314261}
   m_Layer: 5
   m_Name: "1 S\u1ED0 "
   m_TagString: Untagged
@@ -5462,6 +5479,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205314256}
   m_CullTransparentMesh: 1
+--- !u!114 &1205314261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205314256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2df277dd3dbc86418e5b9cc3903c62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
+  difficultButton: {fileID: 0}
+  min: 1
+  max: 100
 --- !u!1 &1221898916
 GameObject:
   m_ObjectHideFlags: 0
@@ -6724,6 +6756,7 @@ GameObject:
   - component: {fileID: 1431495063}
   - component: {fileID: 1431495062}
   - component: {fileID: 1431495061}
+  - component: {fileID: 1431495064}
   m_Layer: 5
   m_Name: "3 S\u1ED0"
   m_TagString: Untagged
@@ -6833,6 +6866,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431495059}
   m_CullTransparentMesh: 1
+--- !u!114 &1431495064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431495059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2df277dd3dbc86418e5b9cc3903c62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
+  difficultButton: {fileID: 0}
+  min: 100
+  max: 999
 --- !u!1 &1455977302
 GameObject:
   m_ObjectHideFlags: 0
@@ -7600,6 +7648,7 @@ GameObject:
   - component: {fileID: 1538254284}
   - component: {fileID: 1538254283}
   - component: {fileID: 1538254282}
+  - component: {fileID: 1538254285}
   m_Layer: 5
   m_Name: "2 S\u1ED0"
   m_TagString: Untagged
@@ -7709,6 +7758,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538254280}
   m_CullTransparentMesh: 1
+--- !u!114 &1538254285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538254280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2df277dd3dbc86418e5b9cc3903c62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
+  difficultButton: {fileID: 0}
+  min: 10
+  max: 99
 --- !u!1 &1545361567
 GameObject:
   m_ObjectHideFlags: 0
@@ -7871,6 +7935,7 @@ GameObject:
   - component: {fileID: 1557811235}
   - component: {fileID: 1557811234}
   - component: {fileID: 1557811233}
+  - component: {fileID: 1557811236}
   m_Layer: 5
   m_Name: "1 S\u1ED0 "
   m_TagString: Untagged
@@ -7980,6 +8045,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557811231}
   m_CullTransparentMesh: 1
+--- !u!114 &1557811236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557811231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2df277dd3dbc86418e5b9cc3903c62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
+  difficultButton: {fileID: 0}
+  min: 1
+  max: 10
 --- !u!1 &1587022732
 GameObject:
   m_ObjectHideFlags: 0
@@ -10109,6 +10189,7 @@ GameObject:
   - component: {fileID: 1936041013}
   - component: {fileID: 1936041012}
   - component: {fileID: 1936041011}
+  - component: {fileID: 1936041014}
   m_Layer: 5
   m_Name: "1 S\u1ED0 "
   m_TagString: Untagged
@@ -10218,6 +10299,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936041009}
   m_CullTransparentMesh: 1
+--- !u!114 &1936041014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936041009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2df277dd3dbc86418e5b9cc3903c62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
+  difficultButton: {fileID: 0}
+  min: 0
+  max: 9
 --- !u!1 &1953610703
 GameObject:
   m_ObjectHideFlags: 0
@@ -10717,6 +10813,7 @@ GameObject:
   - component: {fileID: 2115542364}
   - component: {fileID: 2115542363}
   - component: {fileID: 2115542362}
+  - component: {fileID: 2115542365}
   m_Layer: 5
   m_Name: "4 S\u1ED0"
   m_TagString: Untagged
@@ -10826,6 +10923,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115542360}
   m_CullTransparentMesh: 1
+--- !u!114 &2115542365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115542360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2df277dd3dbc86418e5b9cc3903c62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
+  difficultButton: {fileID: 0}
+  min: 1000
+  max: 9999
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

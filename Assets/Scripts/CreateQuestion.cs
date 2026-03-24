@@ -10,10 +10,18 @@ public class CreateQuestion : MonoBehaviour
     {
         Mode = mode;
 
-        Number1 = Random.Range(min, max);
-        Number2 = Random.Range(min, max);
-
-        if (mode == GameModeManager.GameModeType.Div)
+        if (mode == GameModeManager.GameModeType.Minus)
+        {
+            Number1 = Random.Range(min, max);
+            Number2 = Random.Range(min, Number1); // Ensure Number2 is less than or equal to Number1
+            return;
+        }
+        else if (mode == GameModeManager.GameModeType.Mul || mode == GameModeManager.GameModeType.Add)
+        {
+            Number1 = Random.Range(min, max);
+            Number2 = Random.Range(min, max);
+        }
+        else if (mode == GameModeManager.GameModeType.Div)
         {
             Number2 = Random.Range(1, max); // Avoid zero for division
             Number1 = Number2 * Random.Range(min, max / Number2); // Ensure a clean division

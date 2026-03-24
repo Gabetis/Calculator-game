@@ -124,8 +124,6 @@ public class GameManager : MonoBehaviour
 
         if (isTimeOn)
         {
-            //UImanager.timeText.TimeStop();
-            //UImanager.timeText.ClearTime();
             UImanager.timeText.TimeReset();
             UImanager.timeText.StartCountDown();
         }
