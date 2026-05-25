@@ -5493,7 +5493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyButton
   difficultButton: {fileID: 0}
   min: 1
-  max: 100
+  max: 10
 --- !u!1 &1221898916
 GameObject:
   m_ObjectHideFlags: 0
@@ -9116,7 +9116,7 @@ GameObject:
   - component: {fileID: 1743508227}
   - component: {fileID: 1743508226}
   m_Layer: 5
-  m_Name: DivPanel
+  m_Name: MulPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9680,7 +9680,7 @@ GameObject:
   - component: {fileID: 1882239165}
   - component: {fileID: 1882239164}
   m_Layer: 5
-  m_Name: MulPanel
+  m_Name: DivPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

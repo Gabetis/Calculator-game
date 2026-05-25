@@ -1,6 +1,8 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -58,6 +60,8 @@ public class GameManager : MonoBehaviour
 
     private void CheckAnswer(string text)
     {
+        
+
         if (isGameOver) return;
 
         if (string.IsNullOrWhiteSpace(text))
@@ -80,6 +84,8 @@ public class GameManager : MonoBehaviour
 
     private void HandleCorrect()
     {
+        UIManager.Instance.mathQuestionUIManager.Result.DeactivateInputField();
+
         UImanager.timeText.TimeStop();
         UImanager.streakText.IncreaseStreak();
         AudioManager.Instance.PlayCorrectSound();
