@@ -5,7 +5,7 @@ public class MathQuestionUIManager : MonoBehaviour
     public TextMeshProUGUI Number1;
     public TextMeshProUGUI Number2;
     public TextMeshProUGUI Operator;
-    public TMP_InputField Result;
+    public TextMeshProUGUI Result;
 
     public void Start()
     {
@@ -26,7 +26,7 @@ public class MathQuestionUIManager : MonoBehaviour
 
         if (Result == null)
         {
-            Result = transform.Find("Result").GetComponentInChildren<TMP_InputField>();
+            Result = transform.Find("Result").GetComponentInChildren<TextMeshProUGUI>();
         }
     }
 }

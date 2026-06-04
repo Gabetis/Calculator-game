@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour
 
         StartGame();
 
-        //Call CheckAnswer when the input field editing ends (Enter or click outside)
-        UImanager.mathQuestionUIManager.Result.onEndEdit.AddListener(CheckAnswer);// AddListener will call CheckAnswer function when onEndEdit is triggered (Enter or click outside)  
     }
 
     public void OnSubmitAnswer(string text)
@@ -84,8 +82,6 @@ public class GameManager : MonoBehaviour
 
     private void HandleCorrect()
     {
-        UIManager.Instance.mathQuestionUIManager.Result.DeactivateInputField();
-
         UImanager.timeText.TimeStop();
         UImanager.streakText.IncreaseStreak();
         AudioManager.Instance.PlayCorrectSound();
@@ -127,11 +123,8 @@ public class GameManager : MonoBehaviour
 
     private void ResetQuestion()
     {
-        var input = UImanager.mathQuestionUIManager.Result;
 
         UImanager.mathQuestionUIManager.Result.text = string.Empty;
-        EventSystem.current.SetSelectedGameObject(input.gameObject);
-        input.ActivateInputField();
 
         bool isTimeOn = PlayerPrefs.GetInt("TimeToggle", 0) == 1;
 
